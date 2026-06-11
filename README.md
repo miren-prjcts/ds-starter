@@ -2,8 +2,6 @@
 
 Чистий стартовий monorepo для дизайн-системи: **tokens → ui → storybook**, на **shadcn/ui-стилі + Tailwind 4**. Призначення подвійне: (1) база нового проєкту, (2) шаблон, який команда копіює собі.
 
-> Філософія й «чому саме так» — у handbook: `manual/00-index.md` (Operating Manual) + `10-repo-setup/15-stack-choice-and-setup-simplification.md`.
-
 ## Структура
 
 ```
@@ -32,17 +30,15 @@ pnpm lint            # ESLint (+ jsx-a11y, react-hooks)
 pnpm build-storybook # статична збірка (як у CI)
 ```
 
-## Демо «поширення» (для воркшопу)
+## Демо «поширення»
 
 Відкрий `packages/tokens/src/tokens.css`, зміни один семантичний токен (напр. `--warning-foreground` або `--radius`) → онови Storybook. **Усі** інстанси змінились одразу — бо вони вживають токен, а не хардкод. Один правок → скрізь.
 
-> Повний план демо + як перенести ці токени у Figma Variables (Light/Dark) — `docs/workshop-figma-plan.md`.
+> Як перенести ці токени у Figma Variables (Light/Dark) — `docs/figma-tokens.md`.
 
 ## Як додати компонент
 
-Workflow Figma → код (three-phase): `handbook/.../30-three-phase-method.md`, демо-скрипт: `80-workshops/84-show-and-tell-session.md`.
-
-Коротко: новий файл у `packages/ui/src/components/`, варіанти через `cva`, кольори **тільки** з токенів (`bg-*`), експорт у `src/index.ts`, story у `apps/storybook/stories/`. Опційно — shadcn CLI (`components.json` готовий), але компоненти працюють і без нього.
+Новий файл у `packages/ui/src/components/`, варіанти через `cva`, кольори **тільки** з токенів (`bg-*`), експорт у `src/index.ts`, story у `apps/storybook/stories/`. Опційно — shadcn CLI (`components.json` готовий), але компоненти працюють і без нього.
 
 ## Перевірки (checks)
 
