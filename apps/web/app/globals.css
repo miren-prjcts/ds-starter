@@ -1,0 +1,34 @@
+@import "@repo/tokens/tokens.css";
+@import "tailwindcss";
+
+@source "../";
+@source "../../../packages/ui/src";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-success-surface: var(--success-surface);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning-surface: var(--warning-surface);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-destructive-surface: var(--destructive-surface);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-info-surface: var(--info-surface);
+  --color-info-foreground: var(--info-foreground);
+  --font-sans: ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, monospace;
+  --radius-md: var(--radius);
+  --radius-lg: var(--radius);
+  --shadow-soft: var(--shadow-soft);
+}

@@ -4,7 +4,16 @@ import reactHooks from "eslint-plugin-react-hooks";
 import jsxA11y from "eslint-plugin-jsx-a11y";
 
 export default tseslint.config(
-  { ignores: ["**/dist/**", "**/storybook-static/**", "**/node_modules/**", "**/.turbo/**"] },
+  {
+    ignores: [
+      "**/dist/**",
+      "**/storybook-static/**",
+      "**/node_modules/**",
+      "**/.turbo/**",
+      "**/.next/**",
+      "**/next-env.d.ts",
+    ],
+  },
   js.configs.recommended,
   ...tseslint.configs.recommended,
   {

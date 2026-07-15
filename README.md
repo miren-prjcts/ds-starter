@@ -10,6 +10,7 @@ packages/
   ui/          @repo/ui     — компоненти (Badge, Button…) у shadcn-стилі (cva + cn)
 apps/
   storybook/   @repo/storybook — Storybook 8 + Tailwind 4 + a11y + theme toggle
+  web/         @repo/web — Next.js 15 surface consuming the same tokens and UI package
 ```
 
 Шари: **токени** (значення) → **ui** (компоненти, що вживають токени через класи `bg-success`) → **storybook** (середовище, де видно все). Tailwind-тему збирає застосунок (storybook); компоненти лишаються чистими.
@@ -20,6 +21,7 @@ apps/
 corepack enable pnpm        # один раз: вмикає pnpm через node
 pnpm install
 pnpm storybook              # → http://localhost:6006
+pnpm --filter @repo/web dev # → http://localhost:3000
 ```
 
 Інші команди:
@@ -30,6 +32,7 @@ pnpm lint            # ESLint (+ jsx-a11y, react-hooks)
 pnpm format          # Prettier --write (+ сортування Tailwind-класів)
 pnpm format:check    # Prettier --check (як у CI)
 pnpm build-storybook # статична збірка (як у CI)
+pnpm build           # повна збірка web + Storybook (як у CI)
 ```
 
 ## Демо «поширення»

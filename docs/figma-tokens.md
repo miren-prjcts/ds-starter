@@ -34,7 +34,7 @@ Palette: pure-neutral, `primary` inverts off-black ↔ off-white between modes, 
 | `primary-foreground`   | `gray-50`  | `gray-950` |
 | `secondary`            | `gray-100` | `gray-800` |
 | `secondary-foreground` | `gray-900` | `gray-50`  |
-| `radius`               | `0.5rem`   | `0.5rem`   |
+| `radius`               | `0.75rem`  | `0.75rem`  |
 
 ## 3 · Status — soft (tinted surface + saturated text), AA contrast
 
