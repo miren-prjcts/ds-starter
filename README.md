@@ -1,6 +1,8 @@
 # ds-starter
 
-Чистий стартовий monorepo для дизайн-системи: **tokens → ui → storybook**, на **shadcn/ui-стилі + Tailwind 4**. Призначення подвійне: (1) база нового проєкту, (2) шаблон, який команда копіює собі.
+Якісний стартовий monorepo для дизайн-системи: **tokens → ui → storybook**, на **shadcn/ui-стилі + Tailwind 4**. Це foundation для нового продукту або шаблон для команди, а не завершений продукт.
+
+Репозиторій містить production-minded основу: семантичні токени, reusable React-компоненти, Storybook, Next.js surface, accessibility-перевірки та CI. Sample-компоненти й demo-сторінка навмисно залишаються відправною точкою: перед використанням у конкретному продукті їх потрібно адаптувати під власний бренд, контент, доменні сценарії та вимоги.
 
 ## Структура
 
@@ -29,6 +31,8 @@ pnpm --filter @repo/web dev # → http://localhost:3000
 ```bash
 pnpm typecheck       # TS strict по всіх пакетах
 pnpm lint            # ESLint (+ jsx-a11y, react-hooks)
+pnpm test            # unit/UI-тести компонентів
+pnpm test:e2e        # Playwright smoke-тести Next.js
 pnpm format          # Prettier --write (+ сортування Tailwind-класів)
 pnpm format:check    # Prettier --check (як у CI)
 pnpm build-storybook # статична збірка (як у CI)
@@ -45,11 +49,27 @@ pnpm build           # повна збірка web + Storybook (як у CI)
 
 Новий файл у `packages/ui/src/components/`, варіанти через `cva`, кольори **тільки** з токенів (`bg-*`), експорт у `src/index.ts`, story у `apps/storybook/stories/`. Опційно — shadcn CLI (`components.json` готовий), але компоненти працюють і без нього.
 
+## Тести та вимоги до PR
+
+Кожна зміна поведінки має супроводжуватися тестами. Це правило стосується і нових компонентів, і змін у вже наявних.
+
+- Новий або змінений UI-компонент: unit/UI-тест у `packages/ui/src/**/*.test.tsx`.
+- Новий компонент або новий варіант: Storybook story для візуальної перевірки та документації.
+- Зміна доступності або інтеракцій: semantic queries у Testing Library й перевірка через Storybook a11y addon.
+- Критичний користувацький сценарій у Next.js: Playwright smoke-тест у `tests/e2e/`.
+- PR вважається готовим після проходження всіх локальних і CI-перевірок.
+
+Для локального запуску E2E один раз встанови браузер Playwright:
+
+```bash
+pnpm exec playwright install chromium
+```
+
 ## Перевірки (checks)
 
-- **TS strict** (per package) · **ESLint** (typescript + react-hooks + jsx-a11y) · **Prettier** (+ Tailwind class-sort) · **Storybook a11y addon** (`a11y.test: error`).
+- **TS strict** (per package) · **ESLint** (typescript + react-hooks + jsx-a11y) · **Prettier** (+ Tailwind class-sort) · **Vitest + Testing Library** · **Playwright smoke** · **Storybook a11y addon** (`a11y.test: error`).
 - **Git hooks** (husky): `pre-commit` → lint-staged (eslint --fix + prettier на staged); `pre-push` → typecheck. Ставляться автоматично на `pnpm install` (`prepare`).
-- **CI** (`.github/workflows/ci.yml`): install → format:check → typecheck → lint → build-storybook.
+- **CI** (`.github/workflows/ci.yml`): install → format:check → typecheck → lint → unit/UI-тести → build web + Storybook → Playwright E2E.
 - `dist`/`node_modules`/`storybook-static` — у `.gitignore` (артефакти не комітимо).
 
 ## Як використати як шаблон
