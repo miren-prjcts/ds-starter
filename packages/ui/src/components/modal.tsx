@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from "react";
 import { X } from "@phosphor-icons/react";
 import { Button } from "./button";

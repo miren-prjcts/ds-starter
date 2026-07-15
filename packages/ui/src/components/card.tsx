@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from "react";
 import { DotsThreeVertical } from "@phosphor-icons/react";
 import { cn } from "../lib/utils";
