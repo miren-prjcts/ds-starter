@@ -41,5 +41,10 @@
   --font-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "Geist Mono Variable", ui-monospace, monospace;
 
+  /* Один радіус-токен керує всім DS: і rounded-md (Button), і rounded-lg (Card/Modal). */
   --radius-md: var(--radius);
+  --radius-lg: var(--radius);
+
+  /* М'яка тінь поверхні — клас shadow-soft; значення з токена (міняється light/dark). */
+  --shadow-soft: var(--shadow-soft);
 }

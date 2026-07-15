@@ -40,7 +40,8 @@
   --secondary: var(--gray-100);
   --secondary-foreground: var(--gray-900);
 
-  --radius: 0.5rem;
+  --radius: 0.75rem; /* 12px */
+  --shadow-soft: 0 8px 24px -4px rgb(0 0 0 / 0.12); /* м'яка тінь поверхні */
 
   /* ── Статуси · soft (тінт-фон + насичений текст), LIGHT ──────────────────── */
   --success-surface: #f0fdf4;
@@ -66,10 +67,12 @@
   --input: var(--gray-800);
   --ring: var(--gray-300);
 
-  --primary: var(--gray-50); /* off-white — інверсія primary */
+  --primary: var(--gray-50); /* off-white — інверсія для dark */
   --primary-foreground: var(--gray-950); /* off-black */
   --secondary: var(--gray-800);
   --secondary-foreground: var(--gray-50);
+
+  --shadow-soft: 0 8px 28px -4px rgb(0 0 0 / 0.5); /* глибша тінь у dark */
 
   /* ── Статуси · soft, DARK (темний тінт + світлий текст) ──────────────────── */
   --success-surface: #0c2818;

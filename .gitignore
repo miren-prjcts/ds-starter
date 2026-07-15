@@ -1,7 +1,11 @@
 node_modules/
+.pnpm-store/
 dist/
 storybook-static/
 .turbo/
+.next/
+next-env.d.ts
+out/
 *.tsbuildinfo
 .DS_Store
 *.log

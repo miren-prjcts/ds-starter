@@ -9,6 +9,7 @@ const buttonVariants = cva(
       variant: {
         solid: "bg-primary text-primary-foreground hover:opacity-90",
         outline: "border border-border bg-transparent text-foreground hover:bg-muted",
+        ghost: "bg-transparent text-foreground hover:bg-muted",
       },
       size: {
         sm: "h-8 px-3",
