@@ -6,6 +6,7 @@ storybook-static/
 .next/
 next-env.d.ts
 out/
+test-results/
 *.tsbuildinfo
 .DS_Store
 *.log
