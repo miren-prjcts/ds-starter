@@ -2,14 +2,14 @@ import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
 /**
- * Tokens — жива документація дизайн-токенів.
+ * Tokens — live documentation for design tokens.
  *
- * Усі свотчі читають CSS-змінні з @repo/tokens напряму (var(--token)), тому:
- *  - перемикання теми light/dark у тулбарі оновлює секцію Semantic/Status;
- *  - Primitives лишаються константами (не залежать від теми);
- *  - зміна значення у tokens.css → HMR → ця сторінка оновлюється миттєво.
+ * Every swatch reads CSS variables directly from @repo/tokens (var(--token)), so:
+ *  - switching between light/dark in the toolbar updates the Semantic/Status section;
+ *  - Primitives remain constants (they do not depend on the theme);
+ *  - changing a value in tokens.css → HMR → updates this page immediately.
  *
- * Це джерело істини у Figma = packages/tokens/src/tokens.css (1:1).
+ * The Figma source of truth is packages/tokens/src/tokens.css (1:1).
  */
 
 const PRIMITIVES: Array<[string, string]> = [
@@ -66,7 +66,7 @@ function SectionTitle({ children }: { children: React.ReactNode }) {
   );
 }
 
-/** Колірний свотч: квадрат читає var(--name), підпис — ім'я токена (+ опц. hex). */
+/** Color swatch: the square reads var(--name); the label shows the token name (+ optional hex). */
 function Swatch({ name, hex }: { name: string; hex?: string }) {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 6, width: 104 }}>
@@ -128,13 +128,14 @@ export const Overview: Story = {
           Design Tokens
         </h1>
         <p style={{ color: "var(--muted-foreground)", margin: 0, maxWidth: 560 }}>
-          Свотчі читають живі CSS-змінні. Перемкни тему light/dark у тулбарі — Semantic та Status
-          зміняться, Primitives лишаться константами. Джерело істини: <code>@repo/tokens</code>.
+          Swatches read live CSS variables. Switch between light/dark in the toolbar — Semantic and
+          Status update, while Primitives remain constants. Source of truth:{" "}
+          <code>@repo/tokens</code>.
         </p>
       </div>
 
       <section>
-        <SectionTitle>Primitives — нейтральна шкала (константи)</SectionTitle>
+        <SectionTitle>Primitives — neutral scale (constants)</SectionTitle>
         <Grid>
           {PRIMITIVES.map(([name, hex]) => (
             <Swatch key={name} name={name} hex={hex} />
@@ -143,7 +144,7 @@ export const Overview: Story = {
       </section>
 
       <section>
-        <SectionTitle>Semantic — поверхні та дії (light / dark)</SectionTitle>
+        <SectionTitle>Semantic — surfaces and actions (light / dark)</SectionTitle>
         <Grid>
           {SURFACES.map((name) => (
             <Swatch key={name} name={name} />
@@ -152,7 +153,7 @@ export const Overview: Story = {
       </section>
 
       <section>
-        <SectionTitle>Status — soft (тінт-фон + насичений текст)</SectionTitle>
+        <SectionTitle>Status — soft (tinted background + saturated text)</SectionTitle>
         <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
           {STATUSES.map((s) => (
             <div key={s} style={{ display: "flex", alignItems: "center", gap: 16 }}>

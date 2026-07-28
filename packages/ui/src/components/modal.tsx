@@ -6,14 +6,14 @@ import { Button } from "./button";
 import { cn } from "../lib/utils";
 
 /**
- * Modal — 1:1 з Figma-компонентом «Modal».
+ * Modal — a 1:1 match with the Figma “Modal” component.
  *
- * Scrim (overlay) + surface (card/border/radius/shadow-soft). Кольори й тінь ТІЛЬКИ
- * з токенів: bg-foreground/40, bg-card, border-border, shadow-soft, text-foreground,
- * text-muted-foreground. Жодних hex.
+ * Scrim (overlay) + surface (card/border/radius/shadow-soft). Colors and shadow come ONLY
+ * from tokens: bg-foreground/40, bg-card, border-border, shadow-soft, text-foreground,
+ * text-muted-foreground. No hex values.
  *
- * Доступність: role="dialog" + aria-modal + aria-labelledby/aria-describedby;
- * close — кнопка з aria-label; X-іконка декоративна (Phosphor, та сама бібліотека).
+ * Accessibility: role="dialog" + aria-modal + aria-labelledby/aria-describedby;
+ * close is a button with aria-label; the X icon is decorative (Phosphor, the same library).
  */
 export interface ModalProps {
   title: string;

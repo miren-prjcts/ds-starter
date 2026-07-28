@@ -5,11 +5,11 @@ import { DotsThreeVertical } from "@phosphor-icons/react";
 import { cn } from "../lib/utils";
 
 /**
- * StatCard — 1:1 з Figma-компонентом «Card / Stat».
+ * StatCard — a 1:1 match with the Figma “Card / Stat” component.
  *
- * title/value — per-instance контент (як TEXT-property у Figma): кожна картка свій текст.
- * Кольори ТІЛЬКИ з семантичних токенів: bg-card, border-border, text-muted-foreground,
- * text-foreground. Дія top-right — доступна кнопка (aria-label), іконка декоративна.
+ * title/value are per-instance content (like a TEXT property in Figma): each card has its own text.
+ * Colors come ONLY from semantic tokens: bg-card, border-border, text-muted-foreground,
+ * text-foreground. The top-right action is an accessible button (aria-label); the icon is decorative.
  */
 export interface StatCardProps extends React.HTMLAttributes<HTMLDivElement> {
   title: string;

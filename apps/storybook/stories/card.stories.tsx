@@ -19,8 +19,8 @@ export const Default: Story = {
 };
 
 /**
- * Три картки з ОДНОГО компонента — різний title/value на інстанс.
- * Це і є per-instance content (як TEXT-property у Figma), а не три окремі компоненти.
+ * Three cards from ONE component — different title/value for each instance.
+ * This is per-instance content (like a TEXT property in Figma), not three separate components.
  */
 export const Stats: Story = {
   render: () => (

@@ -1,11 +1,11 @@
 import * as React from "react";
 import type { Preview } from "@storybook/react";
 
-// Geist (variable) — родини "Geist Variable" / "Geist Mono Variable", як у app.css @theme.
+// Geist variable font families: "Geist Variable" / "Geist Mono Variable", as in app.css @theme.
 import "@fontsource-variable/geist";
 import "@fontsource-variable/geist-mono";
 
-// Порядок важливий: спершу токени (визначають CSS-змінні), потім Tailwind.
+// Order matters: tokens first (they define CSS variables), then Tailwind.
 import "@repo/tokens/tokens.css";
 import "./app.css";
 

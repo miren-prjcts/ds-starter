@@ -1,17 +1,17 @@
 /* ──────────────────────────────────────────────────────────────────────────
-   Design tokens — два рівні.
-   Рівень 1 (примітиви): сира нейтральна шкала --gray-*. Константи, НЕ міняються між темами.
-   Рівень 2 (семантика): --background / --primary / --success-* … посилаються на примітиви.
-                          Саме семантику переоприділяє .dark і саме її вживають компоненти.
+   Design tokens — two levels.
+   Level 1 (primitives): raw neutral --gray-* scale. Constants that DO NOT change between themes.
+   Level 2 (semantics): --background / --primary / --success-* … reference primitives.
+                        .dark overrides semantics, and components consume them.
 
-   Правило: компоненти й сторінки використовують ТІЛЬКИ семантичні токени (bg-primary,
-   text-muted-foreground, bg-success-surface), ніколи не сирий --gray-* напряму.
+   Rule: components and pages use ONLY semantic tokens (bg-primary,
+   text-muted-foreground, bg-success-surface), never raw --gray-* directly.
 
-   Демо «поширення»: поміняй один семантичний токен → оновляться всі компоненти й екрани.
+   Propagation demo: change one semantic token → every component and screen updates.
    ────────────────────────────────────────────────────────────────────────── */
 
 :root {
-  /* ── Рівень 1 · нейтральні примітиви (pure neutral, константи) ───────────── */
+  /* ── Level 1 · neutral primitives (pure neutral, constants) ─────────────── */
   --gray-50: #fafafa;
   --gray-100: #f5f5f5;
   --gray-200: #e5e5e5;
@@ -24,13 +24,13 @@
   --gray-900: #171717;
   --gray-950: #0a0a0a;
 
-  /* ── Рівень 2 · семантика поверхонь (LIGHT) ──────────────────────────────── */
+  /* ── Level 2 · semantic surfaces (LIGHT) ───────────────────────────────── */
   --background: #ffffff;
   --foreground: var(--gray-950); /* off-black */
   --card: #ffffff;
   --card-foreground: var(--gray-950);
   --muted: var(--gray-100);
-  --muted-foreground: var(--gray-500); /* 4.6:1 на білому — AA */
+  --muted-foreground: var(--gray-500); /* 4.6:1 on white — AA */
   --border: var(--gray-200);
   --input: var(--gray-200);
   --ring: var(--gray-950);
@@ -41,11 +41,11 @@
   --secondary-foreground: var(--gray-900);
 
   --radius: 0.75rem; /* 12px */
-  --shadow-soft: 0 8px 24px -4px rgb(0 0 0 / 0.12); /* м'яка тінь поверхні */
+  --shadow-soft: 0 8px 24px -4px rgb(0 0 0 / 0.12); /* soft surface shadow */
 
-  /* ── Статуси · soft (тінт-фон + насичений текст), LIGHT ──────────────────── */
+  /* ── Statuses · soft (tinted background + saturated text), LIGHT ────────── */
   --success-surface: #f0fdf4;
-  --success-foreground: #15803d; /* текст-на-тінті ≥ 4.5:1 — AA */
+  --success-foreground: #15803d; /* text on tint ≥ 4.5:1 — AA */
   --warning-surface: #fffbeb;
   --warning-foreground: #b45309;
   --destructive-surface: #fef2f2;
@@ -55,26 +55,26 @@
 }
 
 .dark {
-  /* Примітиви --gray-* лишаються; .dark переоприділяє ЛИШЕ семантику. */
+  /* --gray-* primitives remain unchanged; .dark overrides ONLY semantics. */
 
   --background: var(--gray-950); /* off-black */
   --foreground: var(--gray-50); /* off-white */
   --card: var(--gray-900);
   --card-foreground: var(--gray-50);
   --muted: var(--gray-800);
-  --muted-foreground: var(--gray-400); /* ~8:1 на off-black — AA */
+  --muted-foreground: var(--gray-400); /* ~8:1 on off-black — AA */
   --border: var(--gray-800);
   --input: var(--gray-800);
   --ring: var(--gray-300);
 
-  --primary: var(--gray-50); /* off-white — інверсія для dark */
+  --primary: var(--gray-50); /* off-white — inverted for dark mode */
   --primary-foreground: var(--gray-950); /* off-black */
   --secondary: var(--gray-800);
   --secondary-foreground: var(--gray-50);
 
-  --shadow-soft: 0 8px 28px -4px rgb(0 0 0 / 0.5); /* глибша тінь у dark */
+  --shadow-soft: 0 8px 28px -4px rgb(0 0 0 / 0.5); /* deeper shadow in dark mode */
 
-  /* ── Статуси · soft, DARK (темний тінт + світлий текст) ──────────────────── */
+  /* ── Statuses · soft, DARK (dark tint + light text) ─────────────────────── */
   --success-surface: #0c2818;
   --success-foreground: #4ade80;
   --warning-surface: #2a1d05;

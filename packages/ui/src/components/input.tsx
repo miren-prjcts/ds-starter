@@ -5,17 +5,17 @@ import { MagnifyingGlass } from "@phosphor-icons/react";
 import { cn } from "../lib/utils";
 
 /**
- * Input (search) — 1:1 з Figma-компонентом «Input».
+ * Input (search) — a 1:1 match with the Figma “Input” component.
  *
- * Обгортка несе рамку/фокус-кільце (focus-within), <input> — прозорий.
- * Кольори ТІЛЬКИ з семантичних токенів: border-input, bg-background, ring-ring,
- * text-foreground, placeholder:text-muted-foreground. Жодних hex.
+ * The wrapper provides the border/focus ring (focus-within); <input> is transparent.
+ * Colors come ONLY from semantic tokens: border-input, bg-background, ring-ring,
+ * text-foreground, placeholder:text-muted-foreground. No hex values.
  *
- * Іконка — Phosphor MagnifyingGlass (та сама офіційна бібліотека, що у Figma),
- * декоративна (aria-hidden); доступну назву несе сам <input> через aria-label.
+ * The icon is Phosphor MagnifyingGlass (the same official library used in Figma),
+ * decorative (aria-hidden); the <input> itself carries the accessible name through aria-label.
  */
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  /** Override-клас для обгортки (напр. ширина: "w-[280px]"). */
+  /** Override class for the wrapper (for example, width: "w-[280px]"). */
   containerClassName?: string;
 }
 

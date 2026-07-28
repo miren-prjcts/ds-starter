@@ -30,9 +30,9 @@ export const Both: Story = {
 };
 
 /**
- * Матриця variant × state. Hover/Focus — псевдостани, тож показані СТАТИЧНО:
- * форсуємо ті самі утиліти, що дає псевдостан (opacity-90 для hover, ring-* для focus).
- * У реальному використанні це :hover / :focus-visible. Кольори — лише семантичні класи.
+ * Variant × state matrix. Hover/Focus are pseudo-states, so they are shown STATICALLY:
+ * we force the same utilities as the pseudo-state (opacity-90 for hover, ring-* for focus).
+ * In real use, they are :hover / :focus-visible. Colors use semantic classes only.
  */
 const STATES: Array<{ label: string; props: Partial<React.ComponentProps<typeof Button>> }> = [
   { label: "Default", props: {} },

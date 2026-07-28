@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
-/* Де Tailwind шукає класи (monorepo): компоненти DS + сторі. */
+/* Where Tailwind looks for classes (monorepo): design-system components and stories. */
 @source "../../../packages/ui/src";
 @source "../stories";
 
-/* Map семантичних токенів (з @repo/tokens) у Tailwind-тему.
-   "inline" = використовуй ці CSS-змінні напряму (резолвляться у браузері).
-   Сирі --gray-* НЕ мапимо навмисно — компоненти вживають лише семантику. */
+/* Maps semantic tokens (from @repo/tokens) into the Tailwind theme.
+   "inline" = use these CSS variables directly (they resolve in the browser).
+   Raw --gray-* values are deliberately not mapped — components use semantics only. */
 @theme inline {
-  /* Поверхні */
+  /* Surfaces */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -19,13 +19,13 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  /* Дії */
+  /* Actions */
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
 
-  /* Статуси (soft: surface = тінт-фон, foreground = текст) */
+  /* Statuses (soft: surface = tinted background, foreground = text) */
   --color-success-surface: var(--success-surface);
   --color-success-foreground: var(--success-foreground);
   --color-warning-surface: var(--warning-surface);
@@ -35,16 +35,16 @@
   --color-info-surface: var(--info-surface);
   --color-info-foreground: var(--info-foreground);
 
-  /* Шрифти — Geist (variable) через @fontsource, підключений у preview.tsx.
-     Брейкпоінти НЕ переоприділяємо: дефолти Tailwind 4 (sm40/md48/lg64/xl80/2xl96rem)
-     уже = нашій сітці. */
+  /* Geist variable fonts are provided by @fontsource and imported in preview.tsx.
+     Breakpoints are NOT overridden: Tailwind 4 defaults (sm40/md48/lg64/xl80/2xl96rem)
+     already match our grid. */
   --font-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "Geist Mono Variable", ui-monospace, monospace;
 
-  /* Один радіус-токен керує всім DS: і rounded-md (Button), і rounded-lg (Card/Modal). */
+  /* One radius token controls the entire design system: rounded-md (Button) and rounded-lg (Card/Modal). */
   --radius-md: var(--radius);
   --radius-lg: var(--radius);
 
-  /* М'яка тінь поверхні — клас shadow-soft; значення з токена (міняється light/dark). */
+  /* Soft surface shadow — the shadow-soft class; its value comes from a token (changes in light/dark mode). */
   --shadow-soft: var(--shadow-soft);
 }
